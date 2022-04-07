@@ -2,7 +2,10 @@
 var currentDayEl = document.querySelector("#currentDay");
 var today = dayjs();
 var hourEl = document.getElementsByClassName("hour");
+var textareaEl = document.getElementsByClassName("description");
 var hourElIndex = 0;
+
+console.log(textareaEl);
 
 // print current date to page
 var thisDay = dayjs(today).format('dddd, MMMM D');
@@ -19,20 +22,26 @@ var evaluateHour = function() {
     var currentHourData = currentHour.getAttribute("data-hour");
     console.log(currentHourData);
 
-    // evaluate if current time is = < > time in left hand column
+    // grab text area associated with current index
+    var currentTextEl = textareaEl[hourElIndex];
+
+    // evaluate if current time is =, <, or > time in left hand column
     if (currentTime == currentHourData) {
         console.log("current");
         // format red background
+        currentTextEl.classList = "present description col-8";
     } else if (currentTime > currentHourData) {
         console.log("past");
         // format grey background
+        currentTextEl.classList = "past description col-8";
     } else {
         console.log("future");
         // format green background
+        currentTextEl.classList = "future description col-8";
     }
 
     // check to see if all hours have been evaluated
-    if (hourElIndex < 3){
+    if (hourElIndex < 8){
         hourElIndex++;
         evaluateHour();
     } else {
@@ -41,6 +50,19 @@ var evaluateHour = function() {
 };
 
 evaluateHour();
+
+
+// ON CLICK of timeblock
+// turns textarea into input element?
+// update textcontent of textarea?
+// on click of save button
+// turn input into textarea
+// save value of click event to local storage
+
+
+
+
+// ---------- INITIAL PSEUDOCODE ---------- //
 
 // 3 columns (hour, event content, and blue button on the right for saving changes)
 // the hours will always be the same
@@ -55,14 +77,4 @@ evaluateHour();
 // when save button is clicked the event info is saved to local storage
 // how do I want that info stored in ls? common key to pull an array, but 
 // tasks will need some way of tracking for what time slot they belong in 
-
-
-
-
-// ON CLICK of timeblock
-// turns textarea into input element
-// on click of save button
-// turn input into textarea
-// save value of click event to local storage
-
 
