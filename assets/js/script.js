@@ -1,6 +1,9 @@
 // ----------- DECLARE GLOBAL VARIABLES
-var currentDayEl = document.querySelector("#currentDay");
 var today = dayjs();
+
+var eventContainer = document.querySelector(".container");
+// var saveBtn = document.getElementsByClassName("saveBtn");
+var currentDayEl = document.querySelector("#currentDay");
 var hourEl = document.getElementsByClassName("hour");
 var textareaEl = document.getElementsByClassName("description");
 var hourElIndex = 0;
@@ -52,14 +55,19 @@ var evaluateHour = function() {
 evaluateHour();
 
 
-// ON CLICK of timeblock
-// turns textarea into input element?
-// update textcontent of textarea?
-// on click of save button
-// turn input into textarea
-// save value of click event to local storage
+// ON CLICK of Event Container
+eventContainer.addEventListener("click", function(event) {
 
-
+    // check to see if event target has the saveBtn class
+    var hasClass = event.target.classList.contains("saveBtn");
+    if (hasClass) {
+        console.log("click");
+        // save current textarea to local storage
+    } 
+    else {
+        console.log("no class");
+    }
+});
 
 
 // ---------- INITIAL PSEUDOCODE ---------- //
