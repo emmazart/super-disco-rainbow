@@ -31,14 +31,27 @@
 
     <!-- Holds all calendar/timeblock content -->
     <div class="container">
-      <div class="row">
-        <div class="col-2"></div>
-          <h2>Time</h2>
-        <div class="col-8"></div>
-          <p>Event</p>
-        <div class="col-2"></div>
-          <p>button</p>
-      </div>
+        <div class="row time-block">
+          <h2 class="hour col-2" data-hour="9">9AM</h2>
+          <textarea class="description col-8">Event</textarea>
+          <button class="btn saveBtn col-2"><i class="fas fa-save"></i></button>
+        </div>
+        <div class="row time-block">
+          <h2 class="hour col-2" data-hour="10" >10AM</h2>
+          <textarea class="description col-8">Event</textarea>
+          <button class="btn saveBtn col-2"><i class="fas fa-save"></i></button>
+        </div>
+        <div class="row time-block">
+          <h2 class="hour col-2" data-hour="11">11AM</h2>
+          <textarea class="description col-8">Event</textarea>
+          <button class="btn saveBtn col-2"><i class="fas fa-save"></i></button>
+        </div>
+        <div class="row time-block">
+          <h2 class="hour col-2" data-hour="12">12PM</h2>
+          <textarea class="description col-8">Event</textarea>
+          <button class="btn saveBtn col-2"><i class="fas fa-save"></i></button>
+        </div>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
