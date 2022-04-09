@@ -21,25 +21,25 @@ var getEventDetails = function() {
 
     // select elements with time-block class
     var timeBlock = document.getElementsByClassName("time-block");
-    console.log(timeBlock);
     // for each element with a class of time-block
-    for (var b of timeBlock) {
-        console.log(b);
+    // console.log(timeBlock);
+    for (i = 0; i < timeBlock.length; i++) {
+        console.log(timeBlock[i]);
         // select sibling element of time-block with class="hour" and get data attribute
-        var hour = b.children[0].getAttribute("data-hour");
+        var hour = timeBlock[i].children[0].getAttribute("data-hour");
+        console.log(hour);
         // get from local storage using hourId key
-        var lsData = localStorage.getItem("hour");
+        var lsData = localStorage.getItem(hour);
 
         if (lsData) {
-            var eventElement = b.children[1];
+            var eventElement = timeBlock[i].children[1];
             eventElement.value = lsData;
             console.log(eventElement.value);
         }
         else {
-            return
         }
-    }
-}
+    };
+};
 
 // ---------- EVALUATE HOUR FUNCTION RUNS ON PAGE LOAD ---------- //
 
@@ -74,10 +74,32 @@ var evaluateHour = function() {
 // ---------- EVENT LISTENER FOR SAVE BUTTON ---------- //
 
 // listen for click event on save button
+eventContainer.addEventListener("click", function(event) {
+    
+    // check to see if event target has saveBtn class
+    var hasClass = event.target.classList.contains("saveBtn");
 
+    if (hasClass) {
+        // grab event description sibling of target & grab value
+        var targetEl = event.target;
+        var event = targetEl.parentNode.children[1].value;
+
+        // grab data-hour attribute from h2 sibling
+        var hourInfoEl = targetEl.parentNode.children[0];
+        var hour = hourInfoEl.getAttribute("data-hour");
+
+        // set as key value pair to local storage
+        console.log(hour, event);
+        localStorage.setItem(hour, event);
+    }
+    else {
+        return
+    }
+});
 
 evaluateHour();
 getEventDetails();
+
 
 
 // ---------- INITIAL PSEUDOCODE ---------- //
