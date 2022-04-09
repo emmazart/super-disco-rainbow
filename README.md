@@ -24,16 +24,22 @@ SO THAT I can manage my time effectively
 
 This appplication performs best on a computer or tablet with a screen width of over 770px. 
 
-### JavaScript Logic Summary
+Moment.js was initially used in the development of this application, but throughout this project has been switched over to Day.js. 
 
-// finish up logic here
+### JQuery Summary
+
+- Day.js is used to retrieve the current date and hour in local time, storing those into separate variables.
+- On document.ready, we retrieve event details from local storage using the "hour" key (paired with event description textContent) and match the "hour" key to the data-hour attribute on the h2.
+- On page load, we also run the evaluateHour function, which formats the events conditionally by comparing the data-hour attribute on the h2 to the current hour (using Day.js).
+- User may then input event details into the textareas.
+- Click event listener on all button elements connects event target with the value of the sibling text area and sends a key/value pair to local storage 
 
 ### Main Files in Repository
 
 - index.html
 - style.css (given in starter code)
-- script.js (active script file & written in JavaScript)
-- script2.js (secondary script file for figuring out JQuery syntax / not currently live in html)
+- script2.js (live JQuery file)
+- script.js (same application written in plain JS / not actively linked in index.html / file used for practice translating JS to JQuery)
 
 This application also utilizes the following APIs:
 
@@ -50,4 +56,4 @@ This application also utilizes the following APIs:
 
 The following screenshot demonstrates how the application looks on page load at 10am on Saturday, April 9th with some events saved in local storage.
 
-![Screenshot of deployed application]()
+![Screenshot of deployed application](./assets/images/super-disco-rainbow-screenshot-deployed.png)
